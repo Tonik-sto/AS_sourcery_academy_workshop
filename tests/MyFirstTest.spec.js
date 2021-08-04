@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { DuckStartPage } = require('../pages/duckStartPage');
 const { DuckResultsPage } = require('../pages/duckResultsPage');
 
+
 test.describe('', () => {
   let page;
 
@@ -10,6 +11,7 @@ test.describe('', () => {
     startPage = new DuckStartPage(page);
     resultPage = new DuckResultsPage(page);
   });
+
   test.beforeEach(async () => {
     await startPage.goto();
   });
@@ -72,7 +74,7 @@ test('panda', async () => {
   passwordsLengths.forEach(passwordLength => {
     test(`Generate ${passwordLength} chracters long password`, async () => {
       await startPage.initiateSearch("password " + passwordLength);
-      const generatedPassword = resultPage.getGeneratedPassword();
+      const generatedPassword = await resultPage.getGeneratedPassword();
 
       expect(generatedPassword.length).toEqual(+passwordLength)
     });
@@ -86,4 +88,8 @@ test('panda', async () => {
       expect(isPasswordElementVisible).toEqual(false)
     });
   });
-  });
+  
+
+
+
+});
