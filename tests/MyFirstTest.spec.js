@@ -72,7 +72,7 @@ test('panda', async () => {
   passwordsLengths.forEach(passwordLength => {
     test(`Generate ${passwordLength} chracters long password`, async () => {
       await startPage.initiateSearch("password " + passwordLength);
-      const generatedPassword = resultPage.getGeneratedPassword();
+      const generatedPassword = await resultPage.getGeneratedPassword();
 
       expect(generatedPassword.length).toEqual(+passwordLength)
     });
