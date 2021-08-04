@@ -1,0 +1,24 @@
+{
+  "name": "lesson_9_test_automation_part2",
+  "version": "1.0.0",
+  "description": "My first test, checking that everything is working",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tonik-sto/AS_sourcery_academy_workshop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tonik-sto/AS_sourcery_academy_workshop/issues"
+  },
+  "homepage": "https://github.com/Tonik-sto/AS_sourcery_academy_workshop#readme",
+  "dependencies": {
+    "@playwright/test": "^1.13.1",
+    "experimental-allure-playwright": "^0.0.3"
+  }
+}
