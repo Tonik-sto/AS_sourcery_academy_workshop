@@ -31,18 +31,30 @@ test.describe('', () => {
     });
 
     test.only('Test Add operation is correct', async () => {
-        //await calculatorPage.chooseBuild('0');
-        //await calculatorPage.addNumbers('2', '2')
-        //await calculatorPage.chooseOperation('0');
-        //await calculatorPage.pressCalculateButton();
-        //await calculatorPage.getAnswer().isVisible();
-        //expect('4').toBe(true);   
+        await calculatorPage.chooseBuild('0');
+        await calculatorPage.addNumbers('2', '2')
+        await calculatorPage.chooseOperation('0');
+        await calculatorPage.pressCalculateButton();
+        const answer = await calculatorPage.getAnswer();
+        expect(answer).toBe('4');
     });
 
-    test('2', async () => {
-
+    test.only('Test Clear button to clear Answer field', async () => {
+        await calculatorPage.chooseBuild('0');
+        await calculatorPage.addNumbers('2', '3')
+        await calculatorPage.chooseOperation('0');
+        await calculatorPage.pressCalculateButton();
+        await calculatorPage.getAnswer();
+        await calculatorPage.clearAnswerField();
+        expect(calculatorPage.getAnswer()).toBeNaN;
     });
-    test('3', async () => {
-
+    
+    test.only('Test error message is displayed if letter is typed in 1st number field', async () => {
+      await calculatorPage.chooseBuild('0');
+      await calculatorPage.addNumbers('a', '3')
+      await calculatorPage.chooseOperation('0');
+      await calculatorPage.pressCalculateButton();
+      const errorMessage = await calculatorPage.errorMessage();
+      expect(errorMessage).toContain('Number 1 is not a number');
     });
 });

@@ -13,6 +13,9 @@ exports.BasicCalculatorPage = class BasicCalculatorPage {
         const build = await this.page.$('#selectBuild');
         await build?.selectOption(value); 
     }
+    async errorMessage() {
+        return await this.page.textContent('#errorMsgField');
+    }
 
     async addNumbers(num1, num2) {    
         await this.page.fill('#number1Field', num1);
@@ -28,13 +31,13 @@ exports.BasicCalculatorPage = class BasicCalculatorPage {
     }
     
     async getAnswer() {
-        return await this.page.textContent(answer);
+        return await this.page.inputValue('#numberAnswerField');
     }
     async onlyIntegers() {
         await this.page.click('#integerSelect');
     }
 
-    async clearAllFields() {
+    async clearAnswerField() {
         await this.page.click('#clearButton');
     }
 }
