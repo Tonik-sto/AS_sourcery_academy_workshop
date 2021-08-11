@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { DuckStartPage } = require('../pages/duckStartPage');
 const { DuckResultsPage } = require('../pages/duckResultsPage');
 
+
 test.describe('', () => {
   let page;
 
@@ -10,6 +11,7 @@ test.describe('', () => {
     startPage = new DuckStartPage(page);
     resultPage = new DuckResultsPage(page);
   });
+
   test.beforeEach(async () => {
     await startPage.goto();
   });
@@ -86,4 +88,8 @@ test('panda', async () => {
       expect(isPasswordElementVisible).toEqual(false)
     });
   });
-  });
+  
+
+
+
+});
